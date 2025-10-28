@@ -1,75 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send a Message</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #f5f5f5;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #f0f0f0;
     }
 
     .form {
       background: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
       width: 320px;
+    }
+
+    h2 {
       text-align: center;
+      margin-bottom: 20px;
     }
 
     input, textarea {
       width: 100%;
       padding: 10px;
-      margin: 10px 0;
+      margin-bottom: 12px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      font-size: 14px;
     }
 
-    button {
-      width: 48%;
-      padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
+    .btns {
+      display: flex;
+      justify-content: space-between;
     }
 
     .send-btn {
-      background: linear-gradient(to right, #6a11cb, #2575fc);
+      background: linear-gradient(to right, #007bff, #00d4ff);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
     .close-btn {
       background: red;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
     }
   </style>
 </head>
+
 <body>
   <div class="form">
-    <h3>Send a Message</h3>
+    <h2>Send a Message</h2>
     <input type="text" name="name" placeholder="Your Name">
     <input type="email" name="email" placeholder="Your Email">
     <textarea name="message" placeholder="Your Message"></textarea>
-    <div style="display:flex; justify-content:space-between;">
+    <div class="btns">
       <button class="send-btn">Send</button>
       <button class="close-btn">Close</button>
     </div>
   </div>
 
   <script>
+    // Close button functionality
     document.querySelector(".close-btn").addEventListener("click", function() {
       document.querySelector(".form").style.display = "none";
       alert("Form closed!");
     });
 
+    // Send button functionality
     document.querySelector(".send-btn").addEventListener("click", function() {
       const name = document.querySelector("input[name='name']").value;
       const email = document.querySelector("input[name='email']").value;
@@ -80,7 +90,7 @@
         return;
       }
 
-      alert(✅ Message sent!\n\nName: ${name}\nEmail: ${email}\nMessage: ${message});
+      alert("✅ Message sent!\n\nName: " + name + "\nEmail: " + email + "\nMessage: " + message);
     });
   </script>
 </body>
