@@ -3636,5 +3636,23 @@ function addToCart(name, price) {
   });
 </script>
 
-</body>
+<script>
+  document.querySelector(".close-btn").addEventListener("click", function() {
+    alert("Form closed!");
+  });
+
+  document.querySelector(".send-btn").addEventListener("click", function() {
+    const name = document.querySelector("input[name='name']").value;
+    const email = document.querySelector("input[name='email']").value;
+    const message = document.querySelector("textarea[name='message']").value;
+
+    if (!name || !email || !message) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    alert("Message sent successfully!\n\nName: " + name + "\nEmail: " + email + "\nMessage: " + message);
+  });
+</script></body>
 </html>
+
