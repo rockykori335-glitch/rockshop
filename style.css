@@ -1,0 +1,232 @@
+/* ===== Rock Star ⭐ Store Style ===== */
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(90deg, #ff0000, #ff9800);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.search-bar {
+  width: 40%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ffd700;
+}
+
+/* Banner Section */
+.banner {
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1606813909355-36e9b07e88e2?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
+  padding: 100px 20px;
+  color: #fff;
+  position: relative;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.banner h1, .banner p, .banner button {
+  position: relative;
+  z-index: 2;
+}
+
+.banner h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.banner button {
+  padding: 12px 25px;
+  border: none;
+  background: gold;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.banner button:hover {
+  background: #ff0000;
+  color: #fff;
+}
+
+/* Categories */
+.categories {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.categories h2 {
+  color: #ffcc00;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.cat-card {
+  background: #1a1a1a;
+  border: 2px solid #ff0000;
+  border-radius: 10px;
+  padding: 40px 0;
+  font-size: 1.3rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.cat-card:hover {
+  background: #ff0000;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Products */
+.products {
+  text-align: center;
+  padding: 60px 20px;
+  background: #111;
+}
+
+.products h2 {
+  color: #ffcc00;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255,0,0,0.3);
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255,215,0,0.4);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  color: gold;
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.product-card p {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.product-card button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #ff0000;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.product-card button:hover {
+  background: gold;
+  color: black;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  background: #0d0d0d;
+  padding: 20px;
+  border-top: 1px solid #ff0000;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .search-bar {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .banner h1 {
+    font-size: 2rem;
+  }
+
+  .banner p {
+    font-size: 1rem;
+  }
+}
