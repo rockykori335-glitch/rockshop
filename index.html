@@ -3,96 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rock Star ⭐ Store</title>
-
-  <!-- Style File -->
+  <title>Star Badal 🎬</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
+<body>
   <!-- ===== HEADER ===== -->
   <header class="header">
-    <div class="logo">Rock Star ⭐</div>
-    <input type="text" placeholder="Search for products..." class="search-bar" />
+    <div class="logo">🌟 Star Badal</div>
     <nav>
       <a href="#home">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#products">Products</a>
-      <a href="#about">About</a>
+      <a href="#movies">Movies</a>
+      <a href="#actors">Actors</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- ===== BANNER ===== -->
-  <section id="home" class="banner">
-    <h1>Welcome to Rock Star ⭐ Store</h1>
-    <p>Shop the latest gadgets, fashion & accessories at unbeatable prices!</p>
-    <button onclick="location.href='#products'">Shop Now</button>
-  </section>
-
-  <!-- ===== CATEGORIES ===== -->
-  <section id="categories" class="categories">
-    <h2>Top Categories</h2>
-    <div class="category-grid">
-      <div class="cat-card">Mobiles</div>
-      <div class="cat-card">Fashion</div>
-      <div class="cat-card">Electronics</div>
-      <div class="cat-card">Shoes</div>
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span>Star Badal 🎬</span></h1>
+      <p>Your daily dose of movies, trailers & celebrity updates!</p>
+      <button onclick="alert('🎥 Trailer Coming Soon!')">Watch Trailer</button>
     </div>
   </section>
 
-  <!-- ===== PRODUCTS ===== -->
-  <section id="products" class="products">
-    <h2>Featured Products</h2>
-    <div class="product-grid">
+  <!-- ===== LATEST MOVIES ===== -->
+  <section id="movies" class="movies">
+    <h2>🔥 Latest Movies</h2>
+    <div class="movie-grid">
 
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200" alt="Mobile" />
-        <h3>Smartphone X</h3>
-        <p>₹14,999</p>
-        <button class="add-cart" data-name="Smartphone X">Add to Cart</button>
-        <button class="buy-now" data-name="Smartphone X">Buy Now</button>
+      <div class="movie-card">
+        <img src="https://via.placeholder.com/250x350" alt="Movie 1" />
+        <h3>Warrior Returns</h3>
+        <p>Action • 2025</p>
+        <button onclick="alert('🎬 Trailer for Warrior Returns coming soon!')">Watch Trailer</button>
       </div>
 
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200" alt="Shoes" />
-        <h3>Running Shoes</h3>
-        <p>₹2,499</p>
-        <button class="add-cart" data-name="Running Shoes">Add to Cart</button>
-        <button class="buy-now" data-name="Running Shoes">Buy Now</button>
+      <div class="movie-card">
+        <img src="https://via.placeholder.com/250x350" alt="Movie 2" />
+        <h3>Love Beyond Stars</h3>
+        <p>Romance • 2025</p>
+        <button onclick="alert('🎬 Trailer for Love Beyond Stars coming soon!')">Watch Trailer</button>
       </div>
 
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200" alt="Watch" />
-        <h3>Smart Watch</h3>
-        <p>₹3,499</p>
-        <button class="add-cart" data-name="Smart Watch">Add to Cart</button>
-        <button class="buy-now" data-name="Smart Watch">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200" alt="T-shirt" />
-        <h3>RockStar T-shirt</h3>
-        <p>₹899</p>
-        <button class="add-cart" data-name="RockStar T-shirt">Add to Cart</button>
-        <button class="buy-now" data-name="RockStar T-shirt">Buy Now</button>
+      <div class="movie-card">
+        <img src="https://via.placeholder.com/250x350" alt="Movie 3" />
+        <h3>The Dark Dawn</h3>
+        <p>Thriller • 2025</p>
+        <button onclick="alert('🎬 Trailer for The Dark Dawn coming soon!')">Watch Trailer</button>
       </div>
 
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about" class="about">
-    <h2>About Rock Star ⭐</h2>
-    <p>Rock Star ⭐ Store is your one-stop shop for amazing deals on fashion, electronics, and lifestyle products.  
-       Trusted by thousands of customers, we bring you quality with speed and style.</p>
+  <!-- ===== ACTORS ===== -->
+  <section id="actors" class="actors">
+    <h2>⭐ Top Actors</h2>
+    <div class="actor-grid">
+
+      <div class="actor-card">
+        <img src="https://via.placeholder.com/200x200" alt="Actor 1" />
+        <h3>Badal Singh</h3>
+        <p>Action Hero</p>
+      </div>
+
+      <div class="actor-card">
+        <img src="https://via.placeholder.com/200x200" alt="Actor 2" />
+        <h3>Riya Kapoor</h3>
+        <p>Romantic Queen</p>
+      </div>
+
+      <div class="actor-card">
+        <img src="https://via.placeholder.com/200x200" alt="Actor 3" />
+        <h3>Arjun Mehta</h3>
+        <p>Thriller Specialist</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact">
+    <h2>📩 Contact Us</h2>
+    <p>Have suggestions or movie requests? Drop us a message!</p>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <p>© 2025 Rock Star ⭐ Store | Designed by You 😎</p>
+    <p>© 2025 Star Badal 🎬 | Designed with ❤ by You</p>
   </footer>
 
-  <!-- ===== SCRIPT ===== -->
   <script src="script.js"></script>
 </body>
 </html>
