@@ -79,3 +79,12 @@ window.addEventListener("scroll", () => {
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+// 🔍 Movie search function
+function searchMovies() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const movies = document.querySelectorAll(".movie-card");
+  movies.forEach(movie => {
+    const name = movie.getAttribute("data-name").toLowerCase();
+    movie.style.display = name.includes(input) ? "block" : "none";
+  });
+}
