@@ -399,3 +399,99 @@
 
   </div>
 </section>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Star Badal — Watch Movies</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">🌟 Star Badal</div>
+    <input id="search" placeholder="Search movies..." />
+  </header>
+
+  <main class="container">
+    <h1>Now Showing / Trailers</h1>
+    <div id="movieGrid" class="grid"></div>
+  </main>
+
+  <footer class="footer">© 2025 Star Badal</footer>
+
+  <script>
+    // Sample movie data (you can replace src with your own YouTube ID or mp4 URL)
+    const MOVIES = [
+      {
+        id: "warrior",
+        title: "Warrior Returns",
+        year: 2025,
+        poster: "https://via.placeholder.com/300x420?text=Warrior+Returns",
+        type: "youtube",              // "youtube" or "mp4"
+        src: "dQw4w9WgXcQ"            // for youtube: video ID; for mp4: full URL
+      },
+      {
+        id: "love",
+        title: "Love Beyond Stars",
+        year: 2025,
+        poster: "https://via.placeholder.com/300x420?text=Love+Beyond+Stars",
+        type: "youtube",
+        src: "kXYiU_JCYtU"
+      },
+      {
+        id: "dark",
+        title: "The Dark Dawn",
+        year: 2025,
+        poster: "https://via.placeholder.com/300x420?text=The+Dark+Dawn",
+        type: "mp4",
+        src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+      }
+    ];
+
+    const grid = document.getElementById('movieGrid');
+
+    function buildCard(m) {
+      const a = document.createElement('a');
+      a.className = 'card';
+      // link to movie.html with id param
+      a.href = movie.html?id=${encodeURIComponent(m.id)};
+      a.innerHTML = `
+        <img src="${m.poster}" alt="${m.title}">
+        <div class="meta">
+          <h3>${m.title}</h3>
+          <p>${m.year}</p>
+          <div class="btn-row">
+            <button class="watch-btn">Watch</button>
+            <button class="trailer-btn" onclick="event.stopPropagation(); window.location='movie.html?id=${encodeURIComponent(m.id)}&trailer=1'">Trailer</button>
+          </div>
+        </div>
+      `;
+      // open link when card clicked
+      a.querySelector('.watch-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.location = a.href;
+      });
+      return a;
+    }
+
+    function renderGrid(list) {
+      grid.innerHTML = '';
+      list.forEach(m => grid.appendChild(buildCard(m)));
+    }
+
+    // initial render
+    renderGrid(MOVIES);
+
+    // search
+    document.getElementById('search').addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      if (!q) return renderGrid(MOVIES);
+      renderGrid(MOVIES.filter(m => m.title.toLowerCase().includes(q)));
+    });
+
+    // expose MOVIES for movie.html to read via script include (or you can duplicate a small dataset)
+    window.MOVIES = MOVIES;
+  </script>
+</body>
+</html>
