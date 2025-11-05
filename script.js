@@ -88,3 +88,4 @@ function searchMovies() {
     movie.style.display = name.includes(input) ? "block" : "none";
   });
 }
+// export MOVIES as JSON, or fetch from movies.json
