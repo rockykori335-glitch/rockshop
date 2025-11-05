@@ -432,3 +432,50 @@ body {
   padding: 20px;
   color: #ccc;
 }
+/* Slider */
+.slider {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+}
+.slides {
+  display: flex;
+  width: 300%;
+  animation: slideShow 15s infinite;
+}
+.slide {
+  min-width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+.slide-content {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+}
+@keyframes slideShow {
+  0% { transform: translateX(0); }
+  33% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+  100% { transform: translateX(0); }
+}
+
+/* Search Bar */
+.search-bar {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+}
+.search-bar input {
+  width: 60%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
