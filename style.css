@@ -521,3 +521,27 @@ body {
   text-align: center;
   padding: 60px 20px;
 }
+.movies {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.movie-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.movie-grid img {
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px red;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.movie-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px gold;
+}
