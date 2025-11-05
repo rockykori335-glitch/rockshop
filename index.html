@@ -495,3 +495,86 @@
   </script>
 </body>
 </html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Movie Player — Star Badal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">🌟 Star Badal</div>
+    <a href="index.html" class="back">← Back</a>
+  </header>
+
+  <main class="container">
+    <div id="playerArea" class="player-area">
+      <!-- JS will render player here -->
+    </div>
+
+    <section id="info" class="movie-info">
+      <!-- JS will render movie info here -->
+    </section>
+  </main>
+
+  <footer class="footer">© 2025 Star Badal</footer>
+
+  <script>
+    // Get query param
+    function getQuery(name) {
+      const url = new URL(location.href);
+      return url.searchParams.get(name);
+    }
+
+    // Movie data — same as index (you can also fetch a JSON file)
+    const MOVIES = window.MOVIES || [
+      // fallback minimal list if index didn't set window.MOVIES
+      { id: "warrior", title: "Warrior Returns", year: 2025, poster: "https://via.placeholder.com/350x500", type: "youtube", src: "dQw4w9WgXcQ" },
+      { id: "love", title: "Love Beyond Stars", year: 2025, poster: "https://via.placeholder.com/350x500", type: "youtube", src: "kXYiU_JCYtU" },
+      { id: "dark", title: "The Dark Dawn", year: 2025, poster: "https://via.placeholder.com/350x500", type: "mp4", src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" }
+    ];
+
+    const id = getQuery('id');
+    const trailerMode = getQuery('trailer'); // optional param
+    const movie = MOVIES.find(m => m.id === id);
+
+    const playerArea = document.getElementById('playerArea');
+    const info = document.getElementById('info');
+
+    if (!movie) {
+      playerArea.innerHTML = '<p style="color:#f66">Movie not found.</p>';
+    } else {
+      // show poster + player
+      info.innerHTML = `
+        <h1>${movie.title} (${movie.year})</h1>
+        <p>Genre: Demo • Rating: ⭐⭐⭐⭐☆</p>
+        <p>${movie.description || 'This is a demo description. Replace with real synopsis.'}</p>
+      `;
+
+      if (movie.type === 'youtube') {
+        // If trailer param present, play video ID on YouTube; else play embed
+        const videoId = movie.src;
+        playerArea.innerHTML = `
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        `;
+      } else if (movie.type === 'mp4') {
+        // mp4 file
+        playerArea.innerHTML = `
+          <div class="video-wrap">
+            <video controls playsinline preload="metadata" width="100%">
+              <source src="${movie.src}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        `;
+      } else {
+        playerArea.innerHTML = '<p>Unsupported media type.</p>';
+      }
+    }
+  </script>
+</body>
+</html>
