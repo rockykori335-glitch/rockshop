@@ -1,48 +1,81 @@
-// ===== Rock Star ⭐ Store Script =====
+// ===== STAR BADAL 🎬 SCRIPT =====
 
-// Add to Cart Buttons
-const addButtons = document.querySelectorAll(".add-cart");
-addButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const name = btn.getAttribute("data-name");
-    alert(🛒 ${name} added to your cart!);
-  });
+// 👋 Welcome animation
+window.addEventListener("load", () => {
+  alert("Welcome to 🌟 STAR BADAL – Your Filmy World!");
 });
 
-// Buy Now Buttons
-const buyButtons = document.querySelectorAll(".buy-now");
-buyButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const name = btn.getAttribute("data-name");
-    alert(✅ You purchased "${name}" successfully! Thank you for shopping at Rock Star ⭐);
+// 🎬 Watch trailer button
+const heroBtn = document.querySelector(".hero button");
+if (heroBtn) {
+  heroBtn.addEventListener("click", () => {
+    window.open("https://www.youtube.com/results?search_query=latest+bollywood+trailers", "_blank");
   });
-});
-
-// Navbar Smooth Scroll
-document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const section = document.querySelector(link.getAttribute("href"));
-    section.scrollIntoView({ behavior: "smooth" });
-  });
-});
-
-// Floating Message Animation
-function showToast(message) {
-  const toast = document.createElement("div");
-  toast.className = "toast";
-  toast.textContent = message;
-  document.body.appendChild(toast);
-
-  setTimeout(() => {
-    toast.classList.add("show");
-  }, 100);
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-    setTimeout(() => toast.remove(), 500);
-  }, 3000);
 }
 
-// Optional Example (you can trigger it anywhere)
-showToast("🎉 Welcome to Rock Star ⭐ Store!");
+// 💌 Contact form validation
+const contactForm = document.querySelector(".contact form");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = contactForm.querySelector("input[name='name']").value.trim();
+    const email = contactForm.querySelector("input[name='email']").value.trim();
+    const message = contactForm.querySelector("textarea[name='message']").value.trim();
+
+    if (!name || !email || !message) {
+      alert("⚠ Please fill in all fields!");
+      return;
+    }
+
+    alert(✅ Message sent successfully!\n\nName: ${name}\nEmail: ${email}\nMessage: ${message});
+    contactForm.reset();
+  });
+}
+
+// ⭐ Movie card “Watch Now” buttons
+const movieButtons = document.querySelectorAll(".movie-card button");
+movieButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    alert("🎬 Redirecting to movie page...");
+    window.open("https://www.hotstar.com/in/movies", "_blank");
+  });
+});
+
+// 🎭 Actor cards animation hover
+const actorCards = document.querySelectorAll(".actor-card");
+actorCards.forEach((card) => {
+  card.addEventListener("mouseover", () => {
+    card.style.boxShadow = "0 0 20px #ffcc00";
+  });
+  card.addEventListener("mouseout", () => {
+    card.style.boxShadow = "0 0 15px #ff0000";
+  });
+});
+
+// 🔝 Scroll-to-top button (auto show after scroll)
+const scrollBtn = document.createElement("button");
+scrollBtn.textContent = "⬆ Top";
+scrollBtn.style.position = "fixed";
+scrollBtn.style.bottom = "20px";
+scrollBtn.style.right = "20px";
+scrollBtn.style.background = "#ff0000";
+scrollBtn.style.color = "#fff";
+scrollBtn.style.border = "none";
+scrollBtn.style.padding = "10px 15px";
+scrollBtn.style.borderRadius = "8px";
+scrollBtn.style.cursor = "pointer";
+scrollBtn.style.display = "none";
+document.body.appendChild(scrollBtn);
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+});
+
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
