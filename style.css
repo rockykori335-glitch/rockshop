@@ -479,3 +479,45 @@ body {
   outline: none;
   font-size: 16px;
 }
+/* Movie Details Page */
+.movie-page {
+  background: #000;
+  color: #fff;
+}
+.movie-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  gap: 40px;
+}
+.movie-poster img {
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px red;
+}
+.movie-info {
+  max-width: 500px;
+}
+.movie-info h1 {
+  color: gold;
+  font-size: 2rem;
+}
+.movie-info button {
+  margin-top: 15px;
+  background: red;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.movie-info button:hover {
+  background: gold;
+  color: black;
+}
+.cast-section {
+  text-align: center;
+  padding: 60px 20px;
+}
